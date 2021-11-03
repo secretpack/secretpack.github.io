@@ -25,7 +25,7 @@ url                      : "https://secretpack.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : #"secretpack/secretpack.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : #"/logo.png"
+logo                     : "https://github.com/secretpack/secretpack.github.io/blob/master/logo.jpg"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -103,7 +103,7 @@ analytics:
 # Site Author
 author:
   name             : "secretpack"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "https://github.com/secretpack/secretpack.github.io/blob/master/avatar.jpg"
   bio              : "**Security Researcher** and **Consultant**"
   location         : "Korea Suwon"
   email            : "secretpack97@gmail.com"
