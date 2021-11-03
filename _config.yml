@@ -103,7 +103,7 @@ analytics:
 # Site Author
 author:
   name             : "secretpack"
-  avatar           : "https://github.com/secretpack/secretpack.github.io/avatar.jpg"
+  avatar           : "/assets/avatar.jpg"
   bio              : "**Security Researcher** and **Consultant**"
   location         : "Korea Suwon"
   email            : #"secretpack97@gmail.com"
