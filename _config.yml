@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "secretpack"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Security Researcher and Consultant"
+  bio              : "**Security Researcher** and **Consultant**"
   location         : "Korea Suwon"
   email            : "secretpack97@gmail.com"
   links:
