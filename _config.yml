@@ -23,7 +23,7 @@ name                     : "secretpack"
 description              : "Security Research and Development blog"
 url                      : "https://secretpack.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "secretpack/secretpack.github.io"
+repository               : #"secretpack/secretpack.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/logo.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
