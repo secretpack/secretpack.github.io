@@ -20,12 +20,12 @@ title                    : "Secretpack's Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "secretpack"
-description              : "Security Researcher and Consultant"
+description              : "Security Research and Development blog"
 url                      : "https://secretpack.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "secretpack/secretpack.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "./logo.png"
+logo                     : "secretpack/secretpack.github.io/logo.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -102,15 +102,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "secretpack"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "Security Researcher and Consultant"
+  location         : "Korea Suwon"
+  email            : "secretpack97@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "mailto:secretpack97@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
