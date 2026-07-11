@@ -38,8 +38,9 @@ tags:
 
 ## 주제(카테고리) 컨벤션
 
-좌측 사이드바의 **Topics 네비게이션**은 글의 `categories:` 값을 기준으로 자동
-생성된다 (글이 있는 주제만 개수와 함께 표시). 순서와 표시 이름은
+좌측 사이드바의 **Topics 네비게이션**은 `_data/topics.yml` 의 기본 주제를 항상
+모두 표시하고(글 개수 배지 포함), 글이 없는 주제는 흐리게 처리해 클릭되지 않는다.
+글이 생기면 링크로 활성화되고 개수가 올라간다. 순서와 표시 이름은
 `_data/topics.yml` 에서 관리하며, 기본 주제는 다음과 같다:
 
 `Reverse Engineering` · `Pwn` · `Fuzzing` · `Web` · `Firmware` · `Mobile` · `CTF` · `Notes`

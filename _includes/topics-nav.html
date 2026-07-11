@@ -15,13 +15,20 @@
     <ul>
       {%- for t in site.data.topics -%}
         {%- assign posts = site.categories[t.category] -%}
+        {%- assign label = t.label | default: t.category -%}
         {%- if posts -%}
-          {%- assign label = t.label | default: t.category -%}
           <li>
             <a href="{{ '/categories/' | relative_url }}#{{ t.category | slugify }}">
               <span class="topic__name">{{ label }}</span>
               <span class="taxonomy__count">{{ posts | size }}</span>
             </a>
+          </li>
+        {%- else -%}
+          <li class="topic--empty">
+            <span class="topic__link">
+              <span class="topic__name">{{ label }}</span>
+              <span class="taxonomy__count">0</span>
+            </span>
           </li>
         {%- endif -%}
       {%- endfor -%}

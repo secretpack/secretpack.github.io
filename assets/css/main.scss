@@ -33,7 +33,8 @@
     margin: 0;
   }
 
-  a {
+  a,
+  .topic__link {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,10 +42,16 @@
     padding: 0.35em 0;
     font-size: $type-size-6;
     color: $text-color;
+  }
 
-    &:hover {
-      color: $link-color-hover;
-    }
+  a:hover {
+    color: $link-color-hover;
+  }
+
+  /* 글이 없는 주제: 흐리게, 클릭 불가 */
+  .topic--empty .topic__link {
+    color: $muted-text-color;
+    cursor: default;
   }
 
   .topic__name {
@@ -61,5 +68,9 @@
     color: $muted-text-color;
     background: $lighter-gray;
     border-radius: $border-radius;
+  }
+
+  .topic--empty .taxonomy__count {
+    opacity: 0.6;
   }
 }
