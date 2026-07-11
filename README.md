@@ -36,6 +36,18 @@ tags:
 본문...
 ```
 
+## 주제(카테고리) 컨벤션
+
+좌측 사이드바의 **Topics 네비게이션**은 글의 `categories:` 값을 기준으로 자동
+생성된다 (글이 있는 주제만 개수와 함께 표시). 순서와 표시 이름은
+`_data/topics.yml` 에서 관리하며, 기본 주제는 다음과 같다:
+
+`Reverse Engineering` · `Pwn` · `Fuzzing` · `Web` · `Firmware` · `Mobile` · `CTF` · `Notes`
+
+- 글을 쓸 때 `categories:` 에 위 이름을 그대로 쓰면 네비에 일관되게 쌓인다.
+- `_data/topics.yml` 에 없는 새 카테고리로 글을 올리면 네비 하단에 자동으로 추가된다.
+- 순서를 바꾸거나 라벨을 다르게 표시하려면 `_data/topics.yml` 만 수정하면 된다.
+
 ## 로컬 미리보기
 
 Ruby가 설치된 상태에서:

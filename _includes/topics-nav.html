@@ -1,0 +1,41 @@
+{%- comment -%}
+  좌측 사이드바 "Topics" 네비게이션.
+  글이 있는 카테고리만 글 개수와 함께 자동 나열한다.
+  _data/topics.yml 의 순서/라벨을 우선 적용하고, 거기에 없는 카테고리는
+  자동으로 뒤에 덧붙인다. 글이 하나도 없으면 아무것도 출력하지 않는다.
+{%- endcomment -%}
+{% assign category_total = site.categories | size %}
+{% if category_total > 0 %}
+  {%- assign topic_keys = "" -%}
+  {%- for t in site.data.topics -%}
+    {%- capture topic_keys %}{{ topic_keys }}|{{ t.category }}|{% endcapture -%}
+  {%- endfor -%}
+  <nav class="nav__list-topics" aria-label="Topics">
+    <h3 class="nav__title"><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Topics</h3>
+    <ul>
+      {%- for t in site.data.topics -%}
+        {%- assign posts = site.categories[t.category] -%}
+        {%- if posts -%}
+          {%- assign label = t.label | default: t.category -%}
+          <li>
+            <a href="{{ '/categories/' | relative_url }}#{{ t.category | slugify }}">
+              <span class="topic__name">{{ label }}</span>
+              <span class="taxonomy__count">{{ posts | size }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for category in site.categories -%}
+        {%- capture key %}|{{ category[0] }}|{% endcapture -%}
+        {%- unless topic_keys contains key -%}
+          <li>
+            <a href="{{ '/categories/' | relative_url }}#{{ category[0] | slugify }}">
+              <span class="topic__name">{{ category[0] }}</span>
+              <span class="taxonomy__count">{{ category[1] | size }}</span>
+            </a>
+          </li>
+        {%- endunless -%}
+      {%- endfor -%}
+    </ul>
+  </nav>
+{% endif %}

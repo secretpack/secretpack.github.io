@@ -6,3 +6,60 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* ==========================================================================
+   좌측 사이드바 "Topics" 네비게이션 (커스텀)
+   ========================================================================== */
+.nav__list-topics {
+  margin-top: 1.5em;
+
+  .nav__title {
+    margin: 0 0 0.5em;
+    padding: 0.5rem 0;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-6;
+    text-transform: uppercase;
+    border-bottom: 1px solid $border-color;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: $sans-serif;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding: 0.35em 0;
+    font-size: $type-size-6;
+    color: $text-color;
+
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
+
+  .topic__name {
+    flex: 1 1 auto;
+  }
+
+  .taxonomy__count {
+    flex: 0 0 auto;
+    min-width: 1.4em;
+    padding: 0 0.4em;
+    font-size: $type-size-7;
+    line-height: 1.4;
+    text-align: center;
+    color: $muted-text-color;
+    background: $lighter-gray;
+    border-radius: $border-radius;
+  }
+}
