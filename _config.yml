@@ -51,8 +51,12 @@ comments:
     category_name        : "Announcements" # giscus.app 에서 선택한 Discussion 카테고리 이름 (확인 필요)
     category_id          : "DIC_kwDOGUk6A84DA8xJ"
     discussion_term      : "pathname" # "pathname" (default), "url", "title", "og:title"
+    strict               : '0' # '1' to match discussions by strict title, '0' (default)
     reactions_enabled    : '1' # '1' for enabled (default), '0' for disabled
+    emit_metadata        : '0' # '1' to emit discussion metadata, '0' (default)
+    input_position       : "bottom" # "top" or "bottom" (default)
     theme                : "preferred_color_scheme" # "light", "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
+    lang                 : "ko" # giscus UI language (custom override; e.g. "ko", "en")
   staticman:
     branch               : # "master"
     endpoint             : # "https://{your Staticman v3 API}/v3/entry/github/"
