@@ -60,17 +60,18 @@
 
   .taxonomy__count {
     flex: 0 0 auto;
-    min-width: 1.4em;
-    padding: 0 0.4em;
+    min-width: 1.6em;
+    padding: 0 0.45em;
     font-size: $type-size-7;
-    line-height: 1.4;
+    line-height: 1.6;
     text-align: center;
-    color: $muted-text-color;
-    background: $lighter-gray;
+    color: inherit; // 주변 텍스트 색을 따라가 항상 보이게
+    background: transparent; // 검정 박스 제거
+    border: 1px solid $border-color;
     border-radius: $border-radius;
   }
 
   .topic--empty .taxonomy__count {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
