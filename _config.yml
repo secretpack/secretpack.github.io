@@ -111,8 +111,8 @@ analytics:
 author:
   name             : "secretpack"
   avatar           : "/assets/avatar_remake.jpg"
-  bio              : "**Security Researcher** and **Consultant**<br>**Netsyx Solution Senior Researcher**<br>생각날때 끄적이는 블로그"
-  location         : "Korea Suwon"
+  bio              : "Security Researcher at 42dot inc."
+  location         : "Korea Seoul"
   email            : #"secretpack97@gmail.com"
   links:
     - label: "Email"
@@ -130,6 +130,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://www.github.com/secretpack"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/gyeongsik-song-490b8128b/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
