@@ -86,3 +86,37 @@
     font-size: $type-size-6;
   }
 }
+
+/* 본문 상단 접이식 목차 (오른쪽 고정 컬럼 대체) */
+.toc--inline {
+  margin: 0 0 1.5em;
+  padding: 0 1em;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: rgba($border-color, 0.12);
+
+  .toc__title {
+    padding: 0.5em 0;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-6;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+    &::before {
+      content: "\25B8"; // ▸
+      display: inline-block;
+      width: 1em;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &[open] .toc__title::before { transform: rotate(90deg); }
+
+  .toc__menu {
+    margin: 0 0 0.75em;
+    a { font-size: $type-size-6; }
+  }
+}
