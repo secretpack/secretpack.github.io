@@ -18,7 +18,8 @@ toc_sticky: true
 * ARM Trust Execution Environment (TEE) Security
 * Cybersecurity Mangement & Threat Modeling 
 
-## Technical Stack  
+## Technical Stack
+
 | Subject | Details |
 | ----- | ----- |
 | Automotive Security | CAN/CAN-FD, DoIP, SOME/IP, Bluetooth, WiFi, RF, Cellular Fuzzing & Penetration Testing |
@@ -27,9 +28,10 @@ toc_sticky: true
 | LLM Skills | Use my own skills for...|
 
 ## 📄 Paper / 🏆 Award / 📜 Certification
+
 | 📄 Paper Name | Journal | Link |
 | ----- | ----- | ----- |
-|Analyzing Attack Scenarios against Open webOS-based Smart Devices| CISC W'16 | [link](https://syscore.sejong.ac.kr/~woongbak/publications/DC10_11_12.pdf)
+|Analyzing Attack Scenarios against Open webOS-based Smart Devices| CISC W'16 | [link](https://syscore.sejong.ac.kr/~woongbak/publications/DC10_11_12.pdf) |
 |Artifact Analysis of SMART TV based on webOS | Journal of Digital Forensic Korea | [link](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11083152) |  
 
 | 🏆 Award Name | Description | Rank |
