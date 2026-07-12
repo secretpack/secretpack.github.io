@@ -75,3 +75,14 @@
     opacity: 0.7;
   }
 }
+
+/* Categories 페이지: 빈 주제의 안내 문구 (제목 밑줄과 겹치지 않게 여백 확보) */
+.taxonomy__section {
+  margin-bottom: 1.5em;
+
+  .taxonomy__empty {
+    margin: 0.75em 0 0;
+    color: $muted-text-color;
+    font-size: $type-size-6;
+  }
+}

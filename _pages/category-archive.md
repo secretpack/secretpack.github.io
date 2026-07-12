@@ -18,7 +18,7 @@ classes: wide
   {% for post in posts %}{% include archive-single.html type="list" %}{% endfor %}
   </div>
   {% else %}
-  <p class="page__meta"><i class="far fa-fw fa-file" aria-hidden="true"></i> 아직 글이 없습니다.</p>
+  <p class="taxonomy__empty"><i class="far fa-fw fa-file" aria-hidden="true"></i> 아직 글이 없습니다.</p>
   {% endif %}
 </section>
 {% endfor %}
