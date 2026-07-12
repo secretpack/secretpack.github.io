@@ -7,8 +7,6 @@ categories:
 tags:
   - blog
   - jekyll
-toc: true
-toc_sticky: true
 ---
 
 첫 글입니다. 이 블로그에서는 보안 리서치와 개발 과정의 기록을 남깁니다.

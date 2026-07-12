@@ -3,10 +3,6 @@ title: "Who Am I"
 permalink: /about/
 layout: single
 author_profile: true
-toc: true
-toc_label: "목차"
-toc_icon: "user"
-toc_sticky: true
 ---
 
 **Security Researcher & Consultant.** 리버스 엔지니어링과 취약점 분석을 중심으로,

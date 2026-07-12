@@ -32,14 +32,6 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
-        {% if page.toc %}
-          <details class="toc--inline" open>
-            <summary class="toc__title"><i class="fas fa-{{ page.toc_icon | default: 'list-ul' }}" aria-hidden="true"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "목차" }}</summary>
-            <nav class="toc">
-              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
-            </nav>
-          </details>
-        {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>

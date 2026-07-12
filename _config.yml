@@ -301,8 +301,6 @@ defaults:
       share: true
       related: true
       show_date: true
-      toc: true
-      toc_sticky: true
   # _pages
   - scope:
       path: "_pages"
