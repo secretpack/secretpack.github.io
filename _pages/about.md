@@ -48,5 +48,5 @@ toc_sticky: true
 ## Contact
 
 **✉️ Email** : secretpack97@gmail.com  
-**GitHub** : [github.com/secretpack](https://github.com/secretpack)  
+<i class="fab fa-fw fa-github" aria-hidden="true"></i> **GitHub** : [github.com/secretpack](https://github.com/secretpack)  
 <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> **Linkedin** : [MY Linked in Page](https://www.linkedin.com/in/gyeongsik-song-490b8128b/)
