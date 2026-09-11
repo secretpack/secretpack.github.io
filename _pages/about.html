@@ -139,15 +139,22 @@ classes: wide
 
     <div class="entry">
       <div class="entry-head">
-        <span class="entry-title">OP-TEE OS (PKCS#11 TA) — <code>CKA_EC_POINT</code> DER-header over-read</span>
+        <span class="entry-title">OP-TEE OS — upstream security hardening</span>
         <span class="entry-date">2026</span>
       </div>
-      <div class="entry-sub">Upstream pull request · defensive hardening</div>
-      <p>Missing bounds check on a client-supplied <code>CKA_EC_POINT</code> DER header before
-         indexing; submitted as a hardening fix to <code>OP-TEE/optee_os</code>.</p>
+      <div class="entry-sub">Merged pull requests · <code>OP-TEE/optee_os</code></div>
+      <ul>
+        <li>PKCS#11 TA: out-of-bounds read in <code>__trace_attributes()</code> while walking a
+            client-supplied attribute array
+            (<a href="https://github.com/OP-TEE/optee_os/pull/7842">#7842</a>).</li>
+        <li>PKCS#11 TA: <code>CKA_EC_POINT</code> DER-header over-read before length validation
+            (<a href="https://github.com/OP-TEE/optee_os/pull/7879">#7879</a>).</li>
+        <li>Core crypto: heap out-of-bounds write in SM2-KEP key derivation
+            (<a href="https://github.com/OP-TEE/optee_os/pull/7942">#7942</a>).</li>
+      </ul>
       <div class="tags">
         <span class="tag">OP-TEE</span><span class="tag">PKCS#11</span>
-        <span class="tag">OOB Read</span><span class="tag">Hardening</span>
+        <span class="tag">Memory Safety</span><span class="tag">Hardening</span>
       </div>
     </div>
 
@@ -160,6 +167,22 @@ classes: wide
       <p>Details withheld pending coordinated disclosure.</p>
       <div class="tags">
         <span class="tag">OP-TEE</span><span class="tag">Embargo</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">ThorVG — Lottie loader uninitialized-pointer DoS</span>
+      </div>
+      <div class="entry-sub">GitHub Security Advisory ·
+        <a href="https://github.com/thorvg/thorvg/security/advisories/GHSA-p2vq-2gm3-h3g8">GHSA-p2vq-2gm3-h3g8</a>
+        · CVSS 6.5 (Moderate)</div>
+      <p>A malformed Lottie text layer without a valid text document leads to use of an
+         uninitialized pointer/variable in the animation loader, causing denial of service when
+         parsing untrusted animations. Affects ≤ 1.0.7; fixed in 1.1.1.</p>
+      <div class="tags">
+        <span class="tag">ThorVG</span><span class="tag">Lottie</span>
+        <span class="tag">Uninitialized Pointer</span><span class="tag">DoS</span>
       </div>
     </div>
 
