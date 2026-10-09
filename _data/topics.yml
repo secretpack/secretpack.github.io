@@ -6,6 +6,7 @@
 #
 # 글이 있는 주제만 네비에 표시되며(빈 주제는 숨김), 여기 없는 카테고리로 글을
 # 올리면 네비 하단에 자동으로 추가됩니다.
+- category: "Study"
 - category: "Reverse Engineering"
 - category: "Pwn"
   label: "Pwn / Exploitation"
