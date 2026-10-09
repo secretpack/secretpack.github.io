@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 392" font-family="-apple-system,system-ui,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif" role="img" aria-labelledby="tz">
+  <title id="tz">ARM TrustZone: NS 비트로 하드웨어 자원을 분리</title>
+  <defs>
+    <marker id="ahz" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#8796A9"/>
+    </marker>
+  </defs>
+  <rect x="2" y="2" width="816" height="388" rx="12" fill="#ffffff" stroke="#d7dce3"/>
+  <text x="410" y="34" text-anchor="middle" fill="#24324a" font-size="18" font-weight="700">ARM TrustZone — NS 비트로 하드웨어 자원을 분리</text>
+
+  <!-- NS bit -->
+  <rect x="320" y="50" width="180" height="42" rx="7" fill="#FBF2D5" stroke="#D9B65A" stroke-width="1.4"/>
+  <text x="410" y="70" text-anchor="middle" fill="#6B5618" font-size="13.5" font-weight="700">NS 비트</text>
+  <text x="410" y="85" text-anchor="middle" fill="#8a7430" font-size="10.5">모든 버스 접근에 태깅</text>
+
+  <!-- resource columns -->
+  <!-- CPU -->
+  <text x="170" y="130" text-anchor="middle" fill="#29384A" font-size="13" font-weight="600">CPU 코어 상태</text>
+  <rect x="70" y="140" width="200" height="172" rx="8" fill="#F3F5F8" stroke="#c9d1da"/>
+  <rect x="82" y="152" width="176" height="70" rx="5" fill="#E9F2FF" stroke="#7CA9DF"/>
+  <text x="170" y="192" text-anchor="middle" fill="#245A99" font-size="12.5" font-weight="600">Non-Secure</text>
+  <rect x="82" y="230" width="176" height="70" rx="5" fill="#E5F5ED" stroke="#68A98C"/>
+  <text x="170" y="270" text-anchor="middle" fill="#176B49" font-size="12.5" font-weight="600">Secure</text>
+
+  <!-- Memory -->
+  <text x="410" y="130" text-anchor="middle" fill="#29384A" font-size="13" font-weight="600">메모리 (TZASC)</text>
+  <rect x="310" y="140" width="200" height="172" rx="8" fill="#F3F5F8" stroke="#c9d1da"/>
+  <rect x="322" y="152" width="176" height="70" rx="5" fill="#E9F2FF" stroke="#7CA9DF"/>
+  <text x="410" y="192" text-anchor="middle" fill="#245A99" font-size="12.5" font-weight="600">Non-Secure</text>
+  <rect x="322" y="230" width="176" height="70" rx="5" fill="#E5F5ED" stroke="#68A98C"/>
+  <text x="410" y="270" text-anchor="middle" fill="#176B49" font-size="12.5" font-weight="600">Secure</text>
+
+  <!-- Peripherals -->
+  <text x="650" y="130" text-anchor="middle" fill="#29384A" font-size="13" font-weight="600">주변장치 (TZPC)</text>
+  <rect x="550" y="140" width="200" height="172" rx="8" fill="#F3F5F8" stroke="#c9d1da"/>
+  <rect x="562" y="152" width="176" height="70" rx="5" fill="#E9F2FF" stroke="#7CA9DF"/>
+  <text x="650" y="192" text-anchor="middle" fill="#245A99" font-size="12.5" font-weight="600">Non-Secure</text>
+  <rect x="562" y="230" width="176" height="70" rx="5" fill="#E5F5ED" stroke="#68A98C"/>
+  <text x="650" y="270" text-anchor="middle" fill="#176B49" font-size="12.5" font-weight="600">Secure</text>
+
+  <!-- tag lines from NS bit -->
+  <line x1="410" y1="92" x2="170" y2="138" stroke="#8796A9" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#ahz)"/>
+  <line x1="410" y1="92" x2="410" y2="138" stroke="#8796A9" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#ahz)"/>
+  <line x1="410" y1="92" x2="650" y2="138" stroke="#8796A9" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#ahz)"/>
+
+  <!-- legend -->
+  <rect x="196" y="336" width="18" height="14" rx="3" fill="#E9F2FF" stroke="#7CA9DF"/>
+  <text x="220" y="347" fill="#29384A" font-size="11.5">Non-Secure = Normal World (REE)</text>
+  <rect x="470" y="336" width="18" height="14" rx="3" fill="#E5F5ED" stroke="#68A98C"/>
+  <text x="494" y="347" fill="#29384A" font-size="11.5">Secure = Secure World (TEE)</text>
+</svg>

@@ -1,35 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" font-family="'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif" role="img" aria-labelledby="t1">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" font-family="-apple-system,system-ui,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif" role="img" aria-labelledby="t1">
   <title id="t1">TrustZone: 하나의 SoC, 두 개의 세계</title>
   <defs>
     <marker id="ah1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
-      <path d="M0,0 L7,3 L0,6 Z" fill="#8b949e"/>
+      <path d="M0,0 L7,3 L0,6 Z" fill="#536B81"/>
     </marker>
   </defs>
-  <rect x="2" y="2" width="816" height="396" rx="14" fill="#1b1f27" stroke="#30363d"/>
-  <text x="410" y="40" text-anchor="middle" fill="#e6edf3" font-size="20" font-weight="600">TrustZone — 하나의 SoC, 두 개의 세계</text>
+  <rect x="2" y="2" width="816" height="396" rx="12" fill="#ffffff" stroke="#d7dce3"/>
+  <text x="410" y="40" text-anchor="middle" fill="#24324a" font-size="19" font-weight="700">TrustZone — 하나의 SoC, 두 개의 세계</text>
 
   <!-- Normal World -->
-  <rect x="55" y="68" width="300" height="192" rx="10" fill="#11263f" stroke="#58a6ff" stroke-width="1.5"/>
-  <text x="205" y="96" text-anchor="middle" fill="#79b8ff" font-size="15" font-weight="600">Normal World (NS = 1)</text>
-  <rect x="85" y="116" width="240" height="46" rx="6" fill="#0d1b2e" stroke="#3b6ea5"/>
-  <text x="205" y="144" text-anchor="middle" fill="#cdd9e5" font-size="14">일반 앱 (User Apps)</text>
-  <rect x="85" y="178" width="240" height="58" rx="6" fill="#0d1b2e" stroke="#3b6ea5"/>
-  <text x="205" y="213" text-anchor="middle" fill="#cdd9e5" font-size="14">Linux / Android 커널</text>
+  <rect x="55" y="66" width="300" height="194" rx="9" fill="#E9F2FF" stroke="#7CA9DF" stroke-width="1.4"/>
+  <text x="205" y="94" text-anchor="middle" fill="#245A99" font-size="15" font-weight="700">Normal World (NS = 1)</text>
+  <rect x="85" y="114" width="240" height="46" rx="5" fill="#ffffff" stroke="#91B5E2"/>
+  <text x="205" y="142" text-anchor="middle" fill="#243448" font-size="13.5">Client Application (CA)</text>
+  <rect x="85" y="176" width="240" height="58" rx="5" fill="#ffffff" stroke="#91B5E2"/>
+  <text x="205" y="211" text-anchor="middle" fill="#243448" font-size="13.5">Linux / Android (REE OS)</text>
 
   <!-- Secure World -->
-  <rect x="465" y="68" width="300" height="192" rx="10" fill="#10271a" stroke="#3fb950" stroke-width="1.5"/>
-  <text x="615" y="96" text-anchor="middle" fill="#56d364" font-size="15" font-weight="600">Secure World (NS = 0)</text>
-  <rect x="495" y="116" width="240" height="46" rx="6" fill="#0c1f12" stroke="#2a7d3f"/>
-  <text x="615" y="144" text-anchor="middle" fill="#d2e8d6" font-size="14">Trusted App (S-EL0)</text>
-  <rect x="495" y="178" width="240" height="58" rx="6" fill="#0c1f12" stroke="#2a7d3f"/>
-  <text x="615" y="213" text-anchor="middle" fill="#d2e8d6" font-size="14">Trusted OS (S-EL1)</text>
+  <rect x="465" y="66" width="300" height="194" rx="9" fill="#E5F5ED" stroke="#68A98C" stroke-width="1.4"/>
+  <text x="615" y="94" text-anchor="middle" fill="#176B49" font-size="15" font-weight="700">Secure World (NS = 0)</text>
+  <rect x="495" y="114" width="240" height="46" rx="5" fill="#ffffff" stroke="#86C3A4"/>
+  <text x="615" y="142" text-anchor="middle" fill="#243448" font-size="13.5">Trusted Application (S-EL0)</text>
+  <rect x="495" y="176" width="240" height="58" rx="5" fill="#ffffff" stroke="#86C3A4"/>
+  <text x="615" y="211" text-anchor="middle" fill="#243448" font-size="13.5">Trusted OS (S-EL1)</text>
 
   <!-- Secure Monitor -->
-  <rect x="290" y="312" width="240" height="56" rx="8" fill="#2d2612" stroke="#e3b341" stroke-width="1.5"/>
-  <text x="410" y="338" text-anchor="middle" fill="#f2cc60" font-size="15" font-weight="600">Secure Monitor (EL3)</text>
-  <text x="410" y="356" text-anchor="middle" fill="#b9a24a" font-size="11">두 세계 사이의 유일한 관문</text>
+  <rect x="290" y="312" width="240" height="56" rx="7" fill="#FBF2D5" stroke="#D9B65A" stroke-width="1.4"/>
+  <text x="410" y="337" text-anchor="middle" fill="#6B5618" font-size="14.5" font-weight="700">Secure Monitor (EL3)</text>
+  <text x="410" y="355" text-anchor="middle" fill="#8a7430" font-size="11">두 세계 사이의 유일한 관문</text>
 
   <!-- arrows to monitor -->
-  <line x1="205" y1="260" x2="330" y2="314" stroke="#8b949e" stroke-width="1.6" marker-start="url(#ah1)" marker-end="url(#ah1)"/>
-  <line x1="615" y1="260" x2="490" y2="314" stroke="#8b949e" stroke-width="1.6" marker-start="url(#ah1)" marker-end="url(#ah1)"/>
+  <line x1="205" y1="260" x2="330" y2="314" stroke="#536B81" stroke-width="1.6" marker-start="url(#ah1)" marker-end="url(#ah1)"/>
+  <line x1="615" y1="260" x2="490" y2="314" stroke="#536B81" stroke-width="1.6" marker-start="url(#ah1)" marker-end="url(#ah1)"/>
 </svg>
