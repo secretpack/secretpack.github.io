@@ -126,27 +126,27 @@ ARMv8-A(AArch64)에서는 특권 수준을 **Exception Level(EL0~EL3)** 로 구�
 | EL2 | 하이퍼바이저 | (보안 하이퍼바이저 / SPM) |
 | EL3 (최고 특권) | — | **Secure Monitor** |
 
-- **EL3의 Secure Monitor**는 두 세계 사이를 중재하는 유일한 관문이다.
+- **EL3의 Secure Monitor**는 두 실행 환경 사이를 중재하는 유일한 관문이다.
 - **Trusted OS는 S-EL1**, 그 위에서 동작하는 **Trusted Application(TA)은 S-EL0**에 위치한다.
 - Normal World의 운영체제 커널과 Trusted OS는 동일한 EL1 수준이지만, NS 비트로 완전히 분리된 서로 다른 실행 환경이다.
 
 ### 3. 월드 스위칭(World Switch): SMC와 Secure Monitor
 
-두 세계는 서로를 임의로 호출할 수 없다. 모든 전환은 반드시 EL3의 Secure Monitor를 거치며, 그 전환을 유발하는 명령이 **SMC(Secure Monitor Call)** 이다.
+두 실행 환경은 서로를 임의로 호출할 수 없다. 모든 전환은 반드시 EL3의 Secure Monitor를 거치며, 그 전환을 유발하는 명령이 **SMC(Secure Monitor Call)** 이다.
 
 요청과 응답의 흐름을 단순화하면 다음과 같다.
 
 ![월드 스위칭 흐름 — Normal World 커널이 SMC로 Secure Monitor(EL3)를 거쳐 Trusted OS(S-EL1)와 Trusted App(S-EL0)으로 진입하고 결과를 들고 복귀한다](/assets/images/tee-world-switch.svg){: .align-center .diagram}
 
-Secure Monitor는 전환 시점에 레지스터와 실행 상태를 저장·복원하여, 한 세계의 컨텍스트가 다른 세계로 유출되지 않도록 한다. 이러한 월드 스위칭(world switching)은 TEE의 성능과 보안을 좌우하는 핵심 경로이다.
+Secure Monitor는 전환 시점에 레지스터와 실행 상태를 저장·복원하여, 한 실행 환경의 컨텍스트가 다른 실행 환경으로 유출되지 않도록 한다. 이러한 월드 스위칭(world switching)은 TEE의 성능과 보안을 좌우하는 핵심 경로이다.
 
 ### 4. 메모리와 주변장치 격리
 
 CPU의 보안 상태를 구분하는 것만으로는 충분하지 않다. 메모리와 주변장치 역시 함께 격리되어야 한다. ARM 플랫폼은 일반적으로 다음과 같은 하드웨어를 통해 이를 강제한다.
 
 - **TZASC (TrustZone Address Space Controller)** — DRAM 영역을 Secure/Non-Secure로 분할하고, Non-Secure 접근이 Secure 영역에 닿지 못하게 막는다.
-- **TZPC (TrustZone Protection Controller)** — 주변장치(peripheral)를 어느 세계에 할당할지 제어한다.
-- **캐시/MMU의 NS 태깅** — 캐시 라인과 TLB 엔트리에도 Secure 여부가 태깅되어, 세계 간에 캐시가 혼선되지 않는다.
+- **TZPC (TrustZone Protection Controller)** — 주변장치(peripheral)를 어느 실행 환경에 할당할지 제어한다.
+- **캐시/MMU의 NS 태깅** — 캐시 라인과 TLB 엔트리에도 Secure 여부가 태깅되어, 실행 환경 간에 캐시가 혼선되지 않는다.
 
 이러한 메커니즘을 통해 Secure 전용 메모리 영역이 물리적으로 구분되며, Normal World가 해당 영역에 접근을 시도하더라도 하드웨어 수준에서 거부된다.
 
@@ -154,7 +154,7 @@ CPU의 보안 상태를 구분하는 것만으로는 충분하지 않다. 메모
 
 TEE를 신뢰할 수 있으려면 변조되지 않은 TEE가 로드되었다는 사실부터 보장되어야 한다. 이를 위해 부팅 단계부터 서명 검증이 사슬처럼 이어진다. ARM의 레퍼런스 구현인 **TF-A(Trusted Firmware-A)** 의 부트 스테이지를 기준으로 보면 다음과 같다.
 
-| 스테이지 | 역할 | 세계/레벨 |
+| 스테이지 | 역할 | 실행 환경/레벨 |
 | :---: | :---: | :---: |
 | BL1 | ROM 부트코드 (신뢰의 뿌리) | Secure |
 | BL2 | 다음 이미지 로드·검증 | Secure |

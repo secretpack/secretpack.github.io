@@ -27,7 +27,7 @@
   <!-- Secure Monitor -->
   <rect x="290" y="312" width="240" height="56" rx="7" fill="#FBF2D5" stroke="#D9B65A" stroke-width="1.4"/>
   <text x="410" y="337" text-anchor="middle" fill="#6B5618" font-size="14.5" font-weight="700">Secure Monitor (EL3)</text>
-  <text x="410" y="355" text-anchor="middle" fill="#8a7430" font-size="11">두 세계 사이의 유일한 관문</text>
+  <text x="410" y="355" text-anchor="middle" fill="#8a7430" font-size="11">두 실행 환경 사이의 유일한 관문</text>
 
   <!-- arrows to monitor -->
   <line x1="205" y1="260" x2="330" y2="314" stroke="#536B81" stroke-width="1.6" marker-start="url(#ah1)" marker-end="url(#ah1)"/>
