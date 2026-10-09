@@ -1,40 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" font-family="-apple-system,system-ui,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif" role="img" aria-labelledby="t2">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 472" font-family="-apple-system,system-ui,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif" role="img" aria-labelledby="t2">
   <title id="t2">세계 전환: SMC와 Secure Monitor</title>
   <defs>
-    <marker id="ah2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
-      <path d="M0,0 L7,3 L0,6 Z" fill="#536B81"/>
+    <marker id="ah2" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#536B81"/>
+    </marker>
+    <marker id="ah2d" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8796A9"/>
     </marker>
   </defs>
-  <rect x="2" y="2" width="636" height="466" rx="12" fill="#ffffff" stroke="#d7dce3"/>
-  <text x="320" y="34" text-anchor="middle" fill="#24324a" font-size="18" font-weight="700">세계 전환 — SMC와 Secure Monitor</text>
+  <rect x="2" y="2" width="696" height="468" rx="12" fill="#ffffff" stroke="#d7dce3"/>
+  <text x="350" y="32" text-anchor="middle" fill="#24324a" font-size="18" font-weight="700">세계 전환 — SMC와 Secure Monitor</text>
 
   <!-- A: Normal World kernel -->
-  <rect x="170" y="52" width="300" height="56" rx="7" fill="#E9F2FF" stroke="#7CA9DF" stroke-width="1.4"/>
-  <text x="320" y="85" text-anchor="middle" fill="#245A99" font-size="14.5" font-weight="600">Normal World 커널 (REE)</text>
+  <rect x="190" y="58" width="320" height="54" rx="7" fill="#E9F2FF" stroke="#7CA9DF" stroke-width="1.4"/>
+  <text x="350" y="90" text-anchor="middle" fill="#245A99" font-size="14.5" font-weight="600">Normal World 커널 (REE)</text>
 
   <!-- B: Secure Monitor -->
-  <rect x="170" y="164" width="300" height="56" rx="7" fill="#FBF2D5" stroke="#D9B65A" stroke-width="1.4"/>
-  <text x="320" y="197" text-anchor="middle" fill="#6B5618" font-size="14.5" font-weight="600">Secure Monitor (EL3)</text>
+  <rect x="190" y="160" width="320" height="54" rx="7" fill="#FBF2D5" stroke="#D9B65A" stroke-width="1.4"/>
+  <text x="350" y="192" text-anchor="middle" fill="#6B5618" font-size="14.5" font-weight="600">Secure Monitor (EL3)</text>
 
   <!-- C: Trusted OS -->
-  <rect x="170" y="276" width="300" height="56" rx="7" fill="#E5F5ED" stroke="#68A98C" stroke-width="1.4"/>
-  <text x="320" y="309" text-anchor="middle" fill="#176B49" font-size="14.5" font-weight="600">Trusted OS (S-EL1)</text>
+  <rect x="190" y="262" width="320" height="54" rx="7" fill="#E5F5ED" stroke="#68A98C" stroke-width="1.4"/>
+  <text x="350" y="294" text-anchor="middle" fill="#176B49" font-size="14.5" font-weight="600">Trusted OS (S-EL1)</text>
 
   <!-- D: Trusted App -->
-  <rect x="170" y="388" width="300" height="56" rx="7" fill="#ffffff" stroke="#86C3A4" stroke-width="1.4"/>
-  <text x="320" y="421" text-anchor="middle" fill="#176B49" font-size="14.5" font-weight="600">Trusted Application (S-EL0)</text>
+  <rect x="190" y="364" width="320" height="54" rx="7" fill="#ffffff" stroke="#86C3A4" stroke-width="1.4"/>
+  <text x="350" y="396" text-anchor="middle" fill="#176B49" font-size="14.5" font-weight="600">Trusted Application (S-EL0)</text>
 
-  <!-- down arrows -->
-  <line x1="320" y1="108" x2="320" y2="162" stroke="#536B81" stroke-width="1.6" marker-end="url(#ah2)"/>
-  <text x="332" y="140" fill="#536B81" font-size="12.5">SMC 명령 실행</text>
+  <!-- down arrows with numbered steps -->
+  <line x1="350" y1="112" x2="350" y2="158" stroke="#536B81" stroke-width="1.6" marker-end="url(#ah2)"/>
+  <text x="366" y="140" fill="#536B81" font-size="12.5">① SMC 명령 실행</text>
 
-  <line x1="320" y1="220" x2="320" y2="274" stroke="#536B81" stroke-width="1.6" marker-end="url(#ah2)"/>
-  <text x="332" y="252" fill="#536B81" font-size="12.5">NS 비트 전환 · 컨텍스트 저장/복원</text>
+  <line x1="350" y1="214" x2="350" y2="260" stroke="#536B81" stroke-width="1.6" marker-end="url(#ah2)"/>
+  <text x="366" y="242" fill="#536B81" font-size="12.5">② NS 전환 · 컨텍스트 저장/복원</text>
 
-  <line x1="320" y1="332" x2="320" y2="386" stroke="#536B81" stroke-width="1.6" marker-end="url(#ah2)"/>
-  <text x="332" y="364" fill="#536B81" font-size="12.5">TA 호출</text>
+  <line x1="350" y1="316" x2="350" y2="362" stroke="#536B81" stroke-width="1.6" marker-end="url(#ah2)"/>
+  <text x="366" y="344" fill="#536B81" font-size="12.5">③ TA 호출</text>
 
   <!-- return path -->
-  <path d="M470,416 H520 V80 H472" fill="none" stroke="#8796A9" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ah2)"/>
-  <text transform="translate(540,248) rotate(90)" text-anchor="middle" fill="#6b7686" font-size="12.5">결과 반환 (복귀)</text>
+  <path d="M510,391 H560 V85 H512" fill="none" stroke="#8796A9" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ah2d)"/>
+  <text transform="translate(582,238) rotate(90)" text-anchor="middle" fill="#6b7686" font-size="12.5">결과 반환 (복귀)</text>
+
+  <!-- legend -->
+  <rect x="92" y="438" width="16" height="12" rx="2" fill="#E9F2FF" stroke="#7CA9DF"/>
+  <text x="114" y="448" fill="#29384A" font-size="11.5">Normal World</text>
+  <rect x="250" y="438" width="16" height="12" rx="2" fill="#FBF2D5" stroke="#D9B65A"/>
+  <text x="272" y="448" fill="#29384A" font-size="11.5">Secure Monitor (EL3)</text>
+  <rect x="448" y="438" width="16" height="12" rx="2" fill="#E5F5ED" stroke="#68A98C"/>
+  <text x="470" y="448" fill="#29384A" font-size="11.5">Secure World</text>
 </svg>
