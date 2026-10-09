@@ -113,7 +113,7 @@ TrustZone의 핵심은 프로세서에 추가된 **NS 비트(Non-Secure bit)** �
 
 이 구분은 CPU 코어에만 적용되는 것이 아니다. NS 비트는 버스 트랜잭션에 실려 메모리 컨트롤러, 캐시, 주변장치까지 전파된다. 따라서 하드웨어 전역이 각 접근의 보안 상태를 인지하며, Non-Secure 접근이 Secure 자원에 접근하려 시도하면 하드웨어 수준에서 차단된다.
 
-![TrustZone — 하나의 SoC 위의 Normal World와 Secure World, 그리고 두 세계를 잇는 Secure Monitor(EL3)](/assets/images/tee-two-worlds.svg){: .align-center .diagram}
+![TrustZone SoC 내 Normal World와 Secure World, 그리고 두 영역을 잇는 Secure Monitor(EL3)](/assets/images/tee-two-worlds.svg){: .align-center .diagram}
 
 ### 2. Exception Level과 특권 분리
 
@@ -130,13 +130,13 @@ ARMv8-A(AArch64)에서는 특권 수준을 **Exception Level(EL0~EL3)** 로 구�
 - **Trusted OS는 S-EL1**, 그 위에서 동작하는 **Trusted Application(TA)은 S-EL0**에 위치한다.
 - Normal World의 운영체제 커널과 Trusted OS는 동일한 EL1 수준이지만, NS 비트로 완전히 분리된 서로 다른 실행 환경이다.
 
-### 3. 세계 전환: SMC와 Secure Monitor
+### 3. 월드 스위칭(World Switch): SMC와 Secure Monitor
 
 두 세계는 서로를 임의로 호출할 수 없다. 모든 전환은 반드시 EL3의 Secure Monitor를 거치며, 그 전환을 유발하는 명령이 **SMC(Secure Monitor Call)** 이다.
 
 요청과 응답의 흐름을 단순화하면 다음과 같다.
 
-![세계 전환 흐름 — Normal World 커널이 SMC로 Secure Monitor(EL3)를 거쳐 Trusted OS(S-EL1)와 Trusted App(S-EL0)으로 진입하고 결과를 들고 복귀한다](/assets/images/tee-world-switch.svg){: .align-center .diagram}
+![월드 스위칭 흐름 — Normal World 커널이 SMC로 Secure Monitor(EL3)를 거쳐 Trusted OS(S-EL1)와 Trusted App(S-EL0)으로 진입하고 결과를 들고 복귀한다](/assets/images/tee-world-switch.svg){: .align-center .diagram}
 
 Secure Monitor는 전환 시점에 레지스터와 실행 상태를 저장·복원하여, 한 세계의 컨텍스트가 다른 세계로 유출되지 않도록 한다. 이러한 월드 스위칭(world switching)은 TEE의 성능과 보안을 좌우하는 핵심 경로이다.
 
@@ -170,6 +170,6 @@ TEE를 신뢰할 수 있으려면 변조되지 않은 TEE가 로드되었다는 
 
 - **TEE**는 일반 운영체제와 격리된 신뢰 실행 환경으로, 격리·기밀성·무결성을 제공한다.
 - **REE와 TEE**는 CA와 TA를 통해 상호작용하며, GlobalPlatform이 그 표준 API를 정의한다.
-- **TrustZone**은 NS 비트를 통해 CPU·메모리·주변장치를 두 실행 환경으로 분리하고, EL3의 Secure Monitor가 세계 전환을 중재한다.
+- **TrustZone**은 NS 비트를 통해 CPU·메모리·주변장치를 두 실행 환경으로 분리하고, EL3의 Secure Monitor가 월드 스위칭을 중재한다.
 
 다음 글에서는 이러한 TrustZone 기반 위에서 동작하는 대표적인 오픈소스 Trusted OS인 **OP-TEE**의 구조와 호출 흐름을 살펴본다.
