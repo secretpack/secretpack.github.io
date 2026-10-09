@@ -42,7 +42,7 @@ TEE를 이야기할 때는 항상 그 반대편인 **REE(Rich Execution Environm
 함께 등장한다. 둘은 같은 칩 위에서 공존한다.
 
 | 구분 | REE (Normal World) | TEE (Secure World) |
-| --- | --- | --- |
+| :---: | :---: | :---: |
 | 실행 주체 | Android, Linux 등 일반 OS | Trusted OS (소형 보안 커널) |
 | 코드 규모 | 수백만~수천만 줄 | 수만~수십만 줄 |
 | 공격 표면 | 매우 큼 | 의도적으로 최소화 |
@@ -94,21 +94,7 @@ TrustZone의 발상은 단순하다. CPU에 **NS 비트(Non-Secure bit)** 라는
 접근이 Secure인지 Non-Secure인지"를 하드웨어 전역이 알고 있고, Non-Secure
 접근이 Secure 자원을 건드리려 하면 하드웨어가 차단한다.
 
-```
-          하나의 물리적 SoC
- ┌───────────────────────────────────────────┐
- │                                           │
- │   Normal World (NS=1)   Secure World (NS=0)│
- │  ┌───────────────┐     ┌───────────────┐  │
- │  │  일반 앱       │     │  Trusted App  │  │
- │  ├───────────────┤     ├───────────────┤  │
- │  │ Linux/Android │     │  Trusted OS   │  │
- │  └───────────────┘     └───────────────┘  │
- │          │                     │          │
- │          └─────► Monitor ◄──────┘          │
- │                 (Secure Monitor, EL3)      │
- └───────────────────────────────────────────┘
-```
+![TrustZone — 하나의 SoC 위의 Normal World와 Secure World, 그리고 두 세계를 잇는 Secure Monitor(EL3)](/assets/images/tee-two-worlds.svg){: .align-center .diagram}
 
 ### Exception Level: 누가 어느 특권에서 도는가
 
@@ -116,7 +102,7 @@ ARMv8-A(AArch64)에서는 특권 수준을 **Exception Level(EL0~EL3)** 로 나�
 TrustZone의 두 세계와 결합하면 각 소프트웨어의 자리가 분명해진다.
 
 | Exception Level | Normal World | Secure World |
-| --- | --- | --- |
+| :---: | :---: | :---: |
 | EL0 (최저 특권) | 일반 사용자 앱 | **Trusted Application (S-EL0)** |
 | EL1 | Linux/Android 커널 | **Trusted OS (S-EL1)** |
 | EL2 | 하이퍼바이저 | (보안 하이퍼바이저 / SPM) |
@@ -133,18 +119,7 @@ Monitor를 거친다. 그 트리거가 **SMC(Secure Monitor Call)** 명령이다
 
 흐름을 단순화하면 이렇다.
 
-```
-Normal World 커널
-     │  SMC 명령 실행
-     ▼
-Secure Monitor (EL3)
-     │  컨텍스트 저장/복원, NS 비트 전환
-     ▼
-Secure World (Trusted OS, S-EL1)
-     │  요청 처리 → TA 호출
-     ▼
-  결과를 들고 다시 Monitor 경유 → Normal World 복귀
-```
+![세계 전환 흐름 — Normal World 커널이 SMC로 Secure Monitor(EL3)를 거쳐 Trusted OS(S-EL1)와 Trusted App(S-EL0)으로 진입하고 결과를 들고 복귀한다](/assets/images/tee-world-switch.svg){: .align-center .diagram}
 
 Secure Monitor는 전환 시점에 레지스터와 상태를 저장·복원해서, 한 세계의
 컨텍스트가 다른 세계로 새어 나가지 않게 한다. 이 "월드 스위칭"이 TEE
@@ -169,7 +144,7 @@ TEE가 믿을 만하려면 "변조되지 않은 TEE가 로드됐다"는 것부�
 **TF-A(Trusted Firmware-A)** 의 부트 스테이지로 보면:
 
 | 스테이지 | 역할 | 세계/레벨 |
-| --- | --- | --- |
+| :---: | :---: | :---: |
 | BL1 | ROM 부트코드 (신뢰의 뿌리) | Secure |
 | BL2 | 다음 이미지 로드·검증 | Secure |
 | BL31 | **Secure Monitor** (런타임 상주) | EL3 |
@@ -206,24 +181,7 @@ OP-TEE는 하나의 바이너리가 아니라, 두 세계에 걸친 여러 컴�
 - **libteec (TEE Client API 라이브러리)** — 일반 앱(CA)이 TEE를 호출할 때 쓰는 사용자 공간 라이브러리.
 - **tee-supplicant** — Secure World가 Normal World의 자원(파일 시스템 기반 보안 저장, RPC 등)을 필요로 할 때 이를 대신 처리해 주는 데몬.
 
-```
-            Normal World                 │        Secure World
-                                         │
-  ┌──────────────────────────┐          │   ┌────────────────────────┐
-  │ Client App (CA)           │          │   │ Trusted App (TA, S-EL0)│
-  │   └ libteec (Client API)  │          │   └───────────▲────────────┘
-  └──────────────┬───────────┘          │               │
-                 │  ioctl                │   ┌───────────┴────────────┐
-  ┌──────────────▼───────────┐          │   │ OP-TEE OS (S-EL1)      │
-  │ OP-TEE 커널 드라이버       │          │   └───────────▲────────────┘
-  │   /dev/tee0               │          │               │
-  └──────────────┬───────────┘          │               │
-                 │  SMC ─────────────────┼──► Secure Monitor (EL3) ──┘
-                 │                        │
-  ┌──────────────▼───────────┐          │
-  │ tee-supplicant (데몬)     │◄─ RPC ───┤  (보안 저장/파일 등 뒤처리)
-  └──────────────────────────┘          │
-```
+![OP-TEE 구성 요소 — Normal World의 CA·libteec·커널 드라이버·tee-supplicant와 Secure World의 Trusted App·OP-TEE OS가 SMC(Secure Monitor)와 RPC로 연결된다](/assets/images/optee-components.svg){: .align-center .diagram}
 
 ### 호출 흐름 (CA → TA)
 

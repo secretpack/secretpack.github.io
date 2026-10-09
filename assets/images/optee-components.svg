@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" font-family="'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif" role="img" aria-labelledby="t3">
+  <title id="t3">OP-TEE 구성 요소와 호출 흐름</title>
+  <defs>
+    <marker id="ah3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect x="2" y="2" width="876" height="466" rx="14" fill="#1b1f27" stroke="#30363d"/>
+  <text x="440" y="34" text-anchor="middle" fill="#e6edf3" font-size="19" font-weight="600">OP-TEE 구성 요소와 호출 흐름</text>
+
+  <!-- divider -->
+  <line x1="445" y1="52" x2="445" y2="440" stroke="#30363d" stroke-width="1.3" stroke-dasharray="6 5"/>
+  <text x="235" y="62" text-anchor="middle" fill="#79b8ff" font-size="14" font-weight="600">Normal World</text>
+  <text x="655" y="62" text-anchor="middle" fill="#56d364" font-size="14" font-weight="600">Secure World</text>
+
+  <!-- LEFT column (Normal World) -->
+  <rect x="70" y="78" width="300" height="60" rx="8" fill="#11263f" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="220" y="102" text-anchor="middle" fill="#cdd9e5" font-size="14.5">Client App (CA)</text>
+  <text x="220" y="122" text-anchor="middle" fill="#8ba3bd" font-size="12">libteec (TEE Client API)</text>
+
+  <rect x="70" y="186" width="300" height="60" rx="8" fill="#11263f" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="220" y="210" text-anchor="middle" fill="#cdd9e5" font-size="14.5">OP-TEE 커널 드라이버</text>
+  <text x="220" y="230" text-anchor="middle" fill="#8ba3bd" font-size="12">/dev/tee0 · /dev/teepriv0</text>
+
+  <rect x="70" y="338" width="300" height="60" rx="8" fill="#11263f" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" fill="#cdd9e5" font-size="14.5">tee-supplicant (데몬)</text>
+  <text x="220" y="382" text-anchor="middle" fill="#8ba3bd" font-size="12">보안 저장 · 파일 등 뒤처리</text>
+
+  <!-- RIGHT column (Secure World) -->
+  <rect x="520" y="78" width="300" height="60" rx="8" fill="#0c1f12" stroke="#2a7d3f" stroke-width="1.5"/>
+  <text x="670" y="112" text-anchor="middle" fill="#d2e8d6" font-size="14.5">Trusted App (TA, S-EL0)</text>
+
+  <rect x="520" y="208" width="300" height="60" rx="8" fill="#10271a" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="670" y="242" text-anchor="middle" fill="#d2e8d6" font-size="14.5">OP-TEE OS (S-EL1)</text>
+
+  <!-- Secure Monitor straddling divider -->
+  <rect x="345" y="288" width="200" height="52" rx="8" fill="#2d2612" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="445" y="319" text-anchor="middle" fill="#f2cc60" font-size="13.5">Secure Monitor (EL3)</text>
+
+  <!-- CA -> driver -->
+  <line x1="220" y1="138" x2="220" y2="184" stroke="#8b949e" stroke-width="1.6" marker-end="url(#ah3)"/>
+  <text x="232" y="166" fill="#9da7b3" font-size="12">ioctl</text>
+
+  <!-- driver -> monitor (SMC) -->
+  <line x1="340" y1="230" x2="360" y2="290" stroke="#8b949e" stroke-width="1.6" marker-end="url(#ah3)"/>
+  <text x="300" y="278" fill="#d9b34a" font-size="12.5" font-weight="600">SMC</text>
+
+  <!-- monitor -> OP-TEE OS -->
+  <line x1="530" y1="290" x2="560" y2="266" stroke="#8b949e" stroke-width="1.6" marker-end="url(#ah3)"/>
+
+  <!-- TA <-> OP-TEE OS -->
+  <line x1="670" y1="138" x2="670" y2="206" stroke="#8b949e" stroke-width="1.6" marker-start="url(#ah3)" marker-end="url(#ah3)"/>
+
+  <!-- RPC: OP-TEE OS -> tee-supplicant -->
+  <path d="M560,268 C470,330 470,330 372,360" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah3)"/>
+  <text x="500" y="340" fill="#7d8590" font-size="12.5" font-weight="600">RPC</text>
+</svg>
