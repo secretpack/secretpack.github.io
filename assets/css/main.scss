@@ -111,3 +111,21 @@ html { font-size: 16px; }
   border: 1px solid #d0d7de;
   border-radius: 6px;
 }
+
+/* ==========================================================================
+   <div align="center" markdown="1"> 로 감싼 표를 실제로 가운데 정렬.
+   MM 테마는 table 을 display:block; width:100% 로 두므로, 부모 div 의
+   text-align:center(= align="center") 만으로는 블록 레벨 표가 가운데로
+   오지 않는다(full-width라 옮길 여백이 없음). 표 폭을 내용에 맞추고
+   margin auto 로 블록 자체를 중앙 정렬한다. 넓은 표의 가로 스크롤은
+   부모 div 가 담당한다.
+   ========================================================================== */
+.page__content div[align="center"] {
+  overflow-x: auto;
+}
+.page__content div[align="center"] > table {
+  display: table;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto 1em;
+}
